@@ -16,12 +16,12 @@
 		url: 'https://fonts.cdnfonts.com/css/visual-braille',
 		name: "VisualBraille"
 	}
-	const percent = 0.04
+	const percent = 0.02
 
 	style = {
 		backgroundColor: 'inherit',
 		color: 'inherit',
-    margin: '0 -1px 0 4px',
+    margin: '0 -2px 0 2px',
     padding: '0',
     lineHeight: '1',
     fontFamily: font.name
@@ -38,17 +38,21 @@
 	link.setAttribute('type', 'text/css');
 	link.setAttribute('href', font.url);
 	document.head.appendChild(link);
-	
-	nodes = textNodes()
 
-	for (let i = 0; i < nodes.length; i++) {
-    const textNode = nodes[i];
-    const parent = textNode.parentNode;
-    const styledNodes = styleLetters(textNode);
-    if (styledNodes) {
-      if (parent) parent.normalize();
-    };
-  }
+
+  // if (document.fonts.check(font.name)) {
+	
+  	nodes = textNodes()
+
+  	for (let i = 0; i < nodes.length; i++) {
+      const textNode = nodes[i];
+      const parent = textNode.parentNode;
+      const styledNodes = styleLetters(textNode);
+      if (styledNodes) {
+        if (parent) parent.normalize();
+      };
+    }
+  // }
 
 function textNodes() {
   const allTextNodes = [];
